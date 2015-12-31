@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>路径分页标签和徽章组件</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum=scale=1, user-scalable=no">
+	
+<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body style="margin: 200px;">
+
+	<!-- 路径组件：面包屑导航 -->
+	<ol class="breadcrumb">
+		<li><a href="#">首页</a></li>
+		<li><a href="#">产品列表</a></li>
+		<li class="active">韩版2015羊绒大衣</li>
+	</ol>
+	
+	<!-- 分页组件 -->
+	<ul class="pagination pagination-lg">
+		<li><a href="#">&laquo;</a></li>
+		<li class="active"><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li class="disabled"><a href="#">5</a></li>
+		<li><a href="#">&raquo;</a></li>
+	</ul>
+	
+	<ul class="pager">
+		<li><a href="#">上一页</a></li>
+		<li><a href="#">下一页</a></li>
+	</ul>
+	<ul class="pager">
+		<li class="previous disabled"><a href="#">上一页</a></li>
+		<li class="next"><a href="#">下一页</a></li>
+	</ul>
+	
+	<!-- 标签 -->
+	<h6>标签 <span class="label label-default">new</span></h6>
+	<h6>标签 <span class="label label-primary">new</span></h6>
+	<h6>标签 <span class="label label-success">new</span></h6>
+	<h6>标签 <span class="label label-info">new</span></h6>
+	<h6>标签 <span class="label label-warning">new</span></h6>
+	<h6>标签 <span class="label label-danger">new</span></h6>
+
+	<!-- 徽章 -->
+	<a href="#">信息 <span class="badge">10</span></a>
+	<button class="btn btn-success">
+		提交 <span class="badge">3</span>
+	</button>
+	<ul class="nav nav-pills">
+		<li class="active"><a href="#">首页 <span class="badge">2</span></a></li>
+		<li><a href="#">资讯</a></li>
+	</ul>
+	
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

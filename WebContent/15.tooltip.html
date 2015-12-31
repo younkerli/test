@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>工具提示插件</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum=scale=1, user-scalable=no">
+	
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style type="text/css">
+	a:FOCUS {
+		outline: none;
+	}
+</style>
+</head>
+<body style="margin: 100px;">
+
+	<!-- 属性
+	data-animation: fade动画开关，默认true
+	data-html: 提示内容是否可用html标签，默认false
+	data-placement： 提示内容出现位置，默认top。top/bottom/left/right/auto自适应。
+	data-original-title：提示语，优先级低于title。
+	data-trigger：表示如何触发tooltip(提示信息)，取值：hover/foucs/click/manual。多值用空格格开。
+	data-delay： 表示提示出现和消失的延迟时间。通过jQuery可设置。
+	data-template： tooltip显示内容样式的模板，默认为<div class='tooltip'><div class='tooltip-arrow'></div><div class='tooltip-inner'></div></div>
+	 -->
+<!-- 	<a href="#" -->
+<!-- 		 data-toggle="tooltip" title="<b>超文本标识符</b>" -->
+<!-- 		data-animation="false" -->
+<!-- 		data-html="true"  -->
+<!-- 		data-placement="auto top" -->
+<!-- 		data-original-title="123" -->
+<!-- 		data-trigger="hover foucs" -->
+<!-- 		data-delay="100" -->
+<!-- 		data-template="<div class='tooltip'><div class='tooltip-arrow'></div><div class='tooltip-inner'></div></div>" -->
+<!-- 	>HTML5</a> -->
+<!-- 	<div id="selection"> -->
+<!-- 		<a href="#" rel="tooltip" data-toggle="tooltip" title="超文本标识符">HTML5</a> -->
+<!-- 		<a href="#" data-toggle="tooltip" title="超文本标识符">HTML5</a> -->
+<!-- 	</div> -->
+
+<!-- 	<div class="btn-group"> -->
+<!-- 		<button class="btn btn-default" data-toggle="tooltip" title="超文本标识符">左</button> -->
+<!-- 		<button class="btn btn-default" data-toggle="tooltip" title="超文本标识符">中</button> -->
+<!-- 		<button class="btn btn-default" data-toggle="tooltip" title="超文本标识符">右</button> -->
+<!-- 	</div> -->
+
+	<a href="#" data-toggle="tooltip" title="超文本标识符">HTML5</a>
+	<button class="btn btn-default">按钮</button>
+
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+// 			$("button").tooltip({
+// 				delay : {
+// 					show : 100,
+// 					hide : 100,
+// 				}, 
+// // 				placement : "left", 
+// 				container : "body",
+// 			});
+
+// 			$("#selection").tooltip({
+// 				selector : "a[rel=tooltip]"
+// 			});	
+			
+			$("a").tooltip();
+			$("button").click(function() {
+// 				$("a").tooltip("show");
+// 				$("a").tooltip("hide");
+// 				$("a").tooltip("toggle");
+// 				$("a").tooltip("destroy");
+			});
+			//4事件：show/shown/hide/hidden
+			$("a").on("show.bs.tooltip", function() {
+				alert("显示前触发！");
+			});
+		})
+	</script>
+	
+</body>
+</html>

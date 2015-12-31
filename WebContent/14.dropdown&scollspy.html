@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>下拉菜单和滚动监听插件</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum=scale=1, user-scalable=no">
+	
+<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<!-- 下拉菜单插件 -->
+	<!-- 
+		声明式用法的关键核心：
+		1. 外围容器使用class="dropdown"包裹
+		2. 内部点击按钮事件绑定 data-toggle="dropdown"
+		3. 菜单元素使用 class="dropdown-menu"
+	 -->
+<!-- 	<div class="dropdown"> -->
+<!-- 		<button class="btn btn-primary" data-toggle="dropdown"> -->
+<!-- 			下拉菜单  -->
+<!-- 			<span class="caret"></span> -->
+<!-- 		</button> -->
+<!-- 		<ul class="dropdown-menu"> -->
+<!-- 			<li><a href="#">首页</a> -->
+<!-- 			<li><a href="#">资讯</a> -->
+<!-- 			<li><a href="#">产品</a> -->
+<!-- 			<li><a href="#">关于</a> -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
+
+	<!-- 在JavaScript中调用，没有属性，方法也不好用。
+		基本事件：show.bs.dropdown/shown.bs.dropdown/hide.bs.dropdwon/hidden.bs.dropdown
+	 -->
+<!-- 	<div class="dropdown" id="dropdown"> -->
+<!-- 		<button class="btn btn-primary" id="btn"> -->
+<!-- 			下拉菜单  -->
+<!-- 			<span class="caret"></span> -->
+<!-- 		</button> -->
+<!-- 		<ul class="dropdown-menu"> -->
+<!-- 			<li><a href="#">首页</a> -->
+<!-- 			<li><a href="#">资讯</a> -->
+<!-- 			<li><a href="#">产品</a> -->
+<!-- 			<li><a href="#">关于</a> -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
+
+	<!-- 滚动监听 -->
+<!-- 	<nav id="nav2" class="navbar navbar-default"> -->
+<!-- 		<a href="#" class="navbar-brand">Web开发</a> -->
+<!-- 		<ul class="nav navbar-nav"> -->
+<!-- 			<li><a href="#html5">HTML5</a></li> -->
+<!-- 			<li><a href="#bootstrap">Bootstrap</a></li> -->
+<!-- 			<li class="dropdown"> -->
+<!-- 				<a href="#" data-toggle="dropdown">JavaScript <span class="caret"></span></a> -->
+<!-- 				<ul class="dropdown-menu"> -->
+<!-- 					<li><a href="#jquery">jQuery</a></li> -->
+<!-- 					<li><a href="#yui">Yui</a></li> -->
+<!-- 					<li><a href="#extjs">ExtJS</a></li> -->
+<!-- 				</ul> -->
+<!-- 			</li> -->
+<!-- 		</ul> -->
+<!-- 	</nav> -->
+	<nav id="nav" class="navbar navbar-default">
+		<a href="#" class="navbar-brand">Web开发</a>
+		<ul class="nav navbar-nav">
+			<li><a href="#html5">HTML5</a></li>
+			<li><a href="#bootstrap">Bootstrap</a></li>
+			<li class="dropdown">
+				<a href="#" data-toggle="dropdown">JavaScript <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#jquery">jQuery</a></li>
+					<li><a href="#yui">Yui</a></li>
+					<li><a href="#extjs">ExtJS</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+<!-- 	  -->
+	<div id="content" style="padding: 0 10px; height: 200px; overflow: auto; position: relative;" data-spy="scroll" data-offset="0" data-target="#nav">
+		<section class="sec">
+			<h4 id="html5">HTML5 <a href="#" onclick="removeSec(this);">删除</a></h4>
+			<p>万维网的核心语言、标准通用标记语言下的一个应用超文本标记语言（HTML）的第五次重大修改（这是一项推荐标准、外语原文：W3C Recommendation、见本处参考资料原文内容：[1]  ）。2014年10月29日，万维网联盟宣布，经过接近8年的艰苦努力，该标准规范终于制定完成。</p>		
+		</section>
+		<section class="sec">
+			<h4 id="bootstrap">Bootstrap</h4>
+			<p>Bootstrap，来自 Twitter，是目前很受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷。[1]  它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目，包括NASA的MSNBC（微软全国广播公司）的Breaking News都使用了该项目。[2]  国内一些移动开发者较为熟悉的框架，如WeX5前端开源框架等，也是基于Bootstrap源码进行性能优化而来。</p>
+		</section>
+		<section class="sec">
+			<h4 id="jquery">jQuery</h4>
+			<p>JQuery是继prototype之后又一个优秀的Javascript库。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0及后续版本将不再支持IE6/7/8浏览器。jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX交互。jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需要定义id即可。</p>
+		</section>
+		<section class="sec">
+			<h4 id="yui">YUI</h4>
+			<p>YUI 库，全称Yahoo! UI Library。是一组工具和控件，用JavaScript写成, 为的是用DOM 脚本，DHTML和AJAX等技术创建丰富的网页交互式应用程序。YUI 基于BSD协议，对所有的使用方式都是免费的。YUI 项目包括YUI 库和两个创建时工具： YUI Compressor (压缩) 和 YUI Doc （JavaScripts代码的文档引擎）。</p>
+		</section>
+		<section class="sec">
+			<h4 id="extjs">ExtJS</h4>
+			<p>自动生成行号，支持checkbox全选，动态选择显示哪些列，支持本地以及远程分页，可以对单元格按照自己的想法进行渲染，这些也算可以想到的功能。</p>
+		</section>
+	</div>
+	
+<!-- 	脚本 -->
+<!-- 	<div id="content" style="padding: 0 10px; height: 200px; overflow: auto; position: relative;"> -->
+<!-- 		<h4 id="html5">HTML5</h4> -->
+<!-- 		<p>万维网的核心语言、标准通用标记语言下的一个应用超文本标记语言（HTML）的第五次重大修改（这是一项推荐标准、外语原文：W3C Recommendation、见本处参考资料原文内容：[1]  ）。2014年10月29日，万维网联盟宣布，经过接近8年的艰苦努力，该标准规范终于制定完成。</p>		 -->
+<!-- 		<h4 id="bootstrap">Bootstrap</h4> -->
+<!-- 		<p>Bootstrap，来自 Twitter，是目前很受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷。[1]  它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目，包括NASA的MSNBC（微软全国广播公司）的Breaking News都使用了该项目。[2]  国内一些移动开发者较为熟悉的框架，如WeX5前端开源框架等，也是基于Bootstrap源码进行性能优化而来。</p> -->
+<!-- 		<h4 id="jquery">jQuery</h4> -->
+<!-- 		<p>JQuery是继prototype之后又一个优秀的Javascript库。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0及后续版本将不再支持IE6/7/8浏览器。jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX交互。jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需要定义id即可。</p> -->
+<!-- 		<h4 id="yui">YUI</h4> -->
+<!-- 		<p>YUI 库，全称Yahoo! UI Library。是一组工具和控件，用JavaScript写成, 为的是用DOM 脚本，DHTML和AJAX等技术创建丰富的网页交互式应用程序。YUI 基于BSD协议，对所有的使用方式都是免费的。YUI 项目包括YUI 库和两个创建时工具： YUI Compressor (压缩) 和 YUI Doc （JavaScripts代码的文档引擎）。</p> -->
+<!-- 		<h4 id="extjs">ExtJS</h4> -->
+<!-- 		<p>自动生成行号，支持checkbox全选，动态选择显示哪些列，支持本地以及远程分页，可以对单元格按照自己的想法进行渲染，这些也算可以想到的功能。</p> -->
+<!-- 	</div> -->
+
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+// 			$("#btn").dropdown();
+			//$("#btn").dropdown("toggle");
+			
+// 			$("#dropdown").on("show.bs.dropdown", function() {
+// 				alert("show调用前！");
+// 			});
+
+			//scrollspy的方法
+// 			$("#content").scrollspy({
+// 				target : "#nav",
+// 				offset : 0
+// 			});			
+			//scrollspy事件
+// 			$("#nav").on("activate.bs.scrollspy", function() {
+// 				alert("新条目被激活！");
+// 			});
+			
+			
+		})
+			function removeSec(e) {
+				$(e).parents(".sec").remove();
+				//刷新scrollspy的结构
+				$("#content").scrollspy("refresh");
+			}
+	</script>
+	
+</body>
+</html>

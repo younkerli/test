@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>模态框插件</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum=scale=1, user-scalable=no">
+	
+<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body style="margin: 100px;">
+	
+	<!-- 1. 模态框声明： tabindex="-1" 取消焦点 -->
+	<div class="modal fade" id="myModal">
+	
+		<!-- 2. 窗口声明： modal-sm 窗口大小 -->
+		<div class="modal-dialog">
+		
+			<!-- 3. 内容声明 -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal"><span>&times;</span></button>
+					<h4 class="modal-title">会员登陆</h4>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-4">1</div>
+							<div class="col-md-4">2</div>
+							<div class="col-md-4">3</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default">注册</button>
+					<button class="btn btn-primary">登陆</button>
+				</div>
+			</div>
+		
+		</div>
+		
+	</div>
+<!-- 通过data-*属性绑定弹窗 -->
+<!-- 	<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">点击弹窗</button> -->
+<!-- 通过jQuery绑定弹窗 -->
+	<button class="btn btn-primary" id="btn">点击弹窗</button>
+	
+	<!-- 
+		插件的用法：所有的插件，都是基于JavaScript/jQuery的。有四个要素：用法、参数、方法和事件。
+		1. 用法：通过data属性
+			data-toggle="modal"//触发类型
+			data-target="#myModal"//触发目标，可用href="#myModal"代替
+		2. 参数：
+			data-backdrop:	>true：默认值。表示有背景摭罩，点击空白可关闭弹窗。
+						  	>false：表示没有背景摭罩，点击空白不可关闭弹窗。
+						  	>static：表示有背景摭罩，点击空白不可关闭弹窗。
+			data-keyboard:	>true：默认值。按esc会关闭弹窗。
+							>false：按esc不会关闭弹窗。
+			data-show:	>true：默认值。初始化时，直接显示。
+						>false：初始化时，不直接显示。
+			href:	>以“#”开头，取代data-toggle属性；
+					>不以“#”开头，代表一个url地址，可以加载该url内容到modal-content中，代替原本内容。
+					 href="modal-content.html"
+		3. 方法：
+			.modal()方法，使用见下文。
+		4. 事件：
+			事件使用见下文。				 
+	 -->
+
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$("#btn").click(function() {
+				$("#myModal").modal("show");
+// 				.modal("toggle"):触发时，反转切换弹窗状态
+// 				.modal("hide"):触发时，关闭弹窗
+			});
+			
+			$("#myModal").modal({
+				show: false,//同data-show
+				backdrop: false,//同data-backdrop
+				keyboard: false,//同data-keyboard
+				remote: 'modal-content.html'//同href
+			}).on("show.bs.modal", function() {
+				alert("在modal出现前调用！");
+			}).on("shown.bs.modal", function() {
+				alert("在modal完全加载后调用！");
+			}).on("hide.bs.modal", function() {
+				alert("在modal关闭前调用！");
+			}).on("hidden.bs.modal", function() {
+				alert("在modal关闭后调用!");
+			}).on("loaded.bs.modal", function() {
+				alert("在远程加载后调用！");
+			});
+		})
+	</script>
+</body>
+</html>

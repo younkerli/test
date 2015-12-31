@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>弹出框插件</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum=scale=1, user-scalable=no">
+	
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style type="text/css">
+	a:FOCUS {
+		outline: none;
+	}
+	#view {
+		width: 300px;
+		height: 100px;
+		border: 1px solid red;
+	}
+</style>
+</head>
+<body style="margin: 100px;">
+
+	<!-- 
+		属性：与tooltip类似
+		data-animation
+		data-html
+		data-placement
+		data-selector
+		data-original-title
+		title
+		data-trigger
+		data-delay
+		data-container
+		data-template
+		data-content
+		data-viewport：设置外围容器边际
+	 -->
+	 <div id="view">
+		<button id="b" class="btn btn-danger btn-lg"
+			data-toggle="popover"
+			title="Bootstrap"
+			data-content="Bootstrap是Twitter推出的一个用于前端开发的开源工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发,是一个CSS/HTML框架。目前,Bootstrap最新版本为3.0 。"
+			data-placement="right"
+		>点击显示/隐藏弹出框</button>
+	 </div>
+
+	<button id="btn">按钮</button>
+
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$("#b").popover({
+				//viewport : "#view",
+				viewport : {
+					selector : "#view", 
+					padding : 10, 
+				}
+			}).on("show.bs.popover", function() {
+				alert("show");
+			}).on("shown.bs.popover", function() {
+				alert("shown");
+			}).on("hide.bs.popover", function() {
+				alert("hide");
+			}).on("hidden.bs.popover", function() {
+				alert("hidden");
+			});
+			
+			$("#btn").click(function() {
+// 				$("#b").popover("show");
+// 				$("#b").popover("hide");
+// 				$("#b").popover("destroy");
+				$("#b").popover("toggle");
+			});
+			
+		})
+	</script>
+	
+</body>
+</html>
